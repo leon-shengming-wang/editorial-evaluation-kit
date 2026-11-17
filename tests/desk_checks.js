@@ -1,0 +1,43 @@
+/* Dependency-free UI-state tests. Run via the Python wrapper or Node in CI. */
+let assertions = 0;
+function check(ok, message) { assertions++; if(!ok) throw Error(message); }
+check(cases.length === 17, 'fixture should have 17 cases');
+check(element('case-title').textContent.includes(cases[0].id), 'first case rendered');
+check(element('previous').disabled === true, 'previous disabled at start');
+check(element('next').disabled === false, 'next enabled at start');
+check(element('progress').textContent === '0 / 17 complete', 'starts empty');
+element('decision').value='A'; element('reason').value='A specific reason'; element('evidence').value=cases[0].source;
+changed();
+check(element('progress').textContent === '1 / 17 complete', 'complete review counted');
+show(1); check(element('reason').value === '', 'next case starts empty');
+show(0); check(element('reason').value === 'A specific reason', 'navigation keeps draft');
+element('evidence').value='This passage is not in the source'; changed();
+check(element('progress').textContent === '0 / 17 complete', 'invalid evidence not complete');
+check(problems(cases[0], draft(cases[0])).length === 1, 'specific quote error');
+element('decision').value='abstain'; element('evidence').value=cases[0].source; changed();
+check(problems(cases[0], draft(cases[0])).length === 0, 'abstain supported');
+show(16); check(element('next').disabled, 'next disabled at end');
+show(0);
+const saved=exportObject();
+check(saved.reviews.length === 1, 'exports touched cases only');
+check(saved.reviews[0].fingerprint === cases[0].fingerprint, 'fingerprint included');
+check(validateImport(saved)[cases[0].id].reason === 'A specific reason', 'round trip');
+const clone=x => JSON.parse(JSON.stringify(x));
+function rejected(mutator, label) { const bad=clone(saved); mutator(bad); let failed=false; try{validateImport(bad);}catch(e){failed=true;} check(failed,label); }
+rejected(x=>x.format='wrong', 'reject wrong format');
+rejected(x=>x.reviews[0].case_id='unknown', 'reject unknown case');
+rejected(x=>x.reviews[0].fingerprint='changed', 'reject changed input');
+rejected(x=>x.reviews.push(x.reviews[0]), 'reject duplicate');
+rejected(x=>x.reviews[0].decision='yes', 'reject invalid decision');
+rejected(x=>x.reviews[0].reason=123, 'reject nonstring');
+rejected(x=>x.reviews[0].reason='x'.repeat(12001), 'reject oversized field');
+rejected(x=>x.reviews[0].extra=true, 'reject unexpected field');
+rejected(x=>delete x.reviews[0].reason, 'reject missing field');
+const incomplete=clone(saved); incomplete.reviews[0].decision='';
+check(validateImport(incomplete)[cases[0].id].decision === '', 'incomplete drafts restored');
+const markup=clone(saved); markup.reviews[0].reason='<img src=x onerror=alert(1)>';
+reviews=validateImport(markup); show(0);
+check(element('reason').value === markup.reviews[0].reason, 'markup remains text');
+check(!JSON.stringify(exportObject()).includes('reference_winner'), 'no reference winner');
+check(dirty, 'download must not falsely mark disk save verified');
+JSON.stringify({assertions, status:'passed'});

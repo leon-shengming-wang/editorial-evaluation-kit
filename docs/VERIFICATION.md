@@ -38,3 +38,10 @@ python3 -m reviewbench data/cases.jsonl --html reports/index.html --json reports
 - Verified known kappa arithmetic, perfect/negative agreement, constant-label undefined kappa, no overlap, missing ratings, ties and abstentions, duplicate rejection, latest-revision selection, read-only database bytes, missing database non-creation, safe HTML escaping and exclusive output creation.
 - Visual browser inspection was not performed in this pass because a supported browser-control tool was unavailable. HTML checks are structural and content tests, not a claim that every visual layout or browser was tested.
 - The initial attempt to run companion tests from the repository root failed import resolution; rerunning from the documented `tools/layout-preflight` working directory passed all 29 tests. The CI workflow already uses that working directory.
+
+## Offline Review Desk addition — November 17, 2026
+
+- 85 main Python tests pass, including the JavaScript state harness with at least 25 assertions under macOS JavaScriptCore. CI uses Node 22 for the same harness.
+- The desk embeds only case inputs plus their SHA-256 fingerprints, not reference labels or rationales.
+- Generated HTML and existing report outputs are deterministic.
+- State tests are not a substitute for actual browser visual/download verification; a local headless Chrome command returned no DOM output, so that stage remains unverified.

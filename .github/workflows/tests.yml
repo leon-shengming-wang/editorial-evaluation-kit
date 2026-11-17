@@ -14,12 +14,19 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - run: python -m unittest discover -s tests -v
       - run: python -m reviewbench data/cases.jsonl --html reports/index.html --json reports/summary.json
       - name: Reproduce calibration demo
         run: |
           python -m examples.agreement_demo
           git diff --exit-code -- reports/agreement-demo.html reports/agreement-demo.json
+      - name: Reproduce offline review desk
+        run: |
+          python -c "from pathlib import Path; from reviewbench.desk import render; from reviewbench.core import load; Path('reports/review-desk.html').write_text(render(load('data/cases.jsonl')), encoding='utf-8')"
+          git diff --exit-code -- reports/review-desk.html
       - name: Test design-spec companion
         working-directory: tools/layout-preflight
         run: python -m unittest discover -s tests -v
