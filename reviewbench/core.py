@@ -5,7 +5,7 @@ from collections import Counter
 from pathlib import Path
 
 DIMENSIONS = ('accuracy', 'instructions', 'clarity')
-CATEGORIES = ('editorial', 'fact-check', 'design', 'audio')
+CATEGORIES = ('editorial', 'fact-check', 'design', 'audio', 'language')
 FIELDS = {'id', 'category', 'prompt', 'source', 'responses', 'scores', 'winner',
           'rationale', 'evidence', 'uncertainty', 'synthetic'}
 

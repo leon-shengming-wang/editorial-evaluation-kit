@@ -9,6 +9,7 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 - [Read a 60-second case walkthrough](docs/CASE-WALKTHROUGH.md), rendered directly on GitHub.
 - [Download the visual case report](reports/index.html) using GitHub’s download-raw-file button, then open the downloaded HTML in your browser. GitHub’s source view does not run HTML.
+- [Explore three subtle decision walkthroughs](docs/SUBTLE-DECISIONS.md): observation cutoff, semantic fidelity, and unresolved transcript meaning.
 - [Inspect the scoring rubric](docs/RUBRIC.md).
 - [Read the raw cases](data/cases.jsonl).
 - [See the automated checks](tests/test_core.py).
@@ -41,7 +42,7 @@ Open `reports/index.html` in your browser. The report works offline, including o
 | Check data quality | Strict fields, types, score ranges, duplicate IDs, exact quotes, and decision consistency |
 | Build reproducible tools | Standard-library Python CLI, unit tests, deterministic HTML and JSON reports |
 
-For less obvious decisions, inspect `ed-004` (length limit versus preserving uncertainty) and `ds-004` (a tie between different defects). Both explicitly distinguish preference from publishability.
+The 17 synthetic cases cover five categories. For less obvious decisions, inspect `ed-004` (length versus uncertainty), `ds-004` (different defects), `fc-004` (observation cutoff), `lg-001` (units and modality), and `au-004` (unresolved meaning). These distinguish preference from publishability; the language case is English-only semantic QA, not a bilingual proficiency test.
 
 ## Design choices
 
