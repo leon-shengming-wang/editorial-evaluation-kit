@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "run_id": "synthetic-baseline",
+  "dataset_id": "authored-demo",
+  "dataset_version": "1",
+  "metric": "authored rubric score",
+  "direction": "higher",
+  "items": [
+    {
+      "id": "case-00",
+      "score": 0.3,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-01",
+      "score": 0.4,
+      "slice": "format"
+    },
+    {
+      "id": "case-02",
+      "score": 0.5,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-03",
+      "score": 0.6,
+      "slice": "format"
+    },
+    {
+      "id": "case-04",
+      "score": 0.7,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-05",
+      "score": 0.3,
+      "slice": "format"
+    },
+    {
+      "id": "case-06",
+      "score": 0.4,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-07",
+      "score": 0.5,
+      "slice": "format"
+    },
+    {
+      "id": "case-08",
+      "score": 0.6,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-09",
+      "score": 0.7,
+      "slice": "format"
+    },
+    {
+      "id": "case-10",
+      "score": 0.3,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-11",
+      "score": 0.4,
+      "slice": "format"
+    },
+    {
+      "id": "case-12",
+      "score": 0.5,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-13",
+      "score": 0.6,
+      "slice": "format"
+    },
+    {
+      "id": "case-14",
+      "score": 0.7,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-15",
+      "score": 0.3,
+      "slice": "format"
+    },
+    {
+      "id": "case-16",
+      "score": 0.4,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-17",
+      "score": 0.5,
+      "slice": "format"
+    },
+    {
+      "id": "case-18",
+      "score": 0.6,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-19",
+      "score": 0.7,
+      "slice": "format"
+    },
+    {
+      "id": "case-20",
+      "score": 0.3,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-21",
+      "score": 0.4,
+      "slice": "format"
+    },
+    {
+      "id": "case-22",
+      "score": 0.5,
+      "slice": "evidence"
+    },
+    {
+      "id": "case-23",
+      "score": 0.6,
+      "slice": "format"
+    }
+  ]
+}

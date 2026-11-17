@@ -1,0 +1,273 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Evaluation Regression Lab</title><style>body{font:16px system-ui;background:#f4f5f8;color:#182434;max-width:1200px;margin:40px auto;padding:0 24px}h1{font-size:42px}header{border-top:6px solid #3154a3;padding:20px 0}.panel{background:white;border:1px solid #d8dce5;border-radius:12px;padding:22px;margin:20px 0;overflow:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid #ddd;padding:10px;text-align:left}p{line-height:1.6}code{overflow-wrap:anywhere}.tag{color:#3154a3;font-weight:bold}details{margin:16px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere}</style><header><div class="tag">PAIRED RESULTS · EXPLICIT UNCERTAINTY</div><h1>Evaluation Regression Lab</h1><p>Compare scored runs without hiding coverage gaps or uncertainty.</p></header><section class="panel"><h2>synthetic-baseline → synthetic-candidate</h2><p>Metric: authored rubric score · higher is better. Dataset: authored-demo / 1</p><p>Imported scores are not independently verified. Paired intervals assume independent representative items; they do not account for evaluator/model randomness, multiple comparisons, or missing-item bias. Positive improvement is better under the declared direction. No production or significance guarantee.</p><ul></ul><pre>Coverage: {
+  &quot;baseline_count&quot;: 24,
+  &quot;candidate_count&quot;: 24,
+  &quot;matched&quot;: 23,
+  &quot;baseline_only&quot;: [
+    &quot;case-23&quot;
+  ],
+  &quot;candidate_only&quot;: [
+    &quot;candidate-only&quot;
+  ],
+  &quot;complete&quot;: false
+}</pre></section><section class="panel"><h2>Matched comparison</h2><p>Intervals are 95% paired percentile bootstrap estimates, not adjusted for multiple slices. Small or constant samples remain uncertain.</p><table><tr><th>Slice</th><th>Pairs</th><th>Baseline</th><th>Candidate</th><th>Improvement</th><th>95% interval</th><th>Signal</th></tr><tr><td>Overall (matched only)</td><td>23</td><td>0.4870</td><td>0.5500</td><td>0.0630</td><td>[0.0196, 0.1065]</td><td>positive_interval</td></tr><tr><td>evidence</td><td>12</td><td>0.4833</td><td>0.5500</td><td>0.0667</td><td>[0.0042, 0.1292]</td><td>uncertain</td></tr><tr><td>format</td><td>11</td><td>0.4909</td><td>0.5500</td><td>0.0591</td><td>[-0.0091, 0.1273]</td><td>uncertain</td></tr></table></section><section class="panel"><h2>Item-level evidence</h2><table><tr><th>ID</th><th>Slice</th><th>Baseline</th><th>Candidate</th><th>Raw delta</th><th>Improvement</th></tr><tr><td>case-00</td><td>evidence</td><td>0.3000</td><td>0.2000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-01</td><td>format</td><td>0.4000</td><td>0.5500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-02</td><td>evidence</td><td>0.5000</td><td>0.6500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-03</td><td>format</td><td>0.6000</td><td>0.5000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-04</td><td>evidence</td><td>0.7000</td><td>0.8500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-05</td><td>format</td><td>0.3000</td><td>0.4500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-06</td><td>evidence</td><td>0.4000</td><td>0.3000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-07</td><td>format</td><td>0.5000</td><td>0.6500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-08</td><td>evidence</td><td>0.6000</td><td>0.7500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-09</td><td>format</td><td>0.7000</td><td>0.6000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-10</td><td>evidence</td><td>0.3000</td><td>0.4500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-11</td><td>format</td><td>0.4000</td><td>0.5500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-12</td><td>evidence</td><td>0.5000</td><td>0.4000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-13</td><td>format</td><td>0.6000</td><td>0.7500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-14</td><td>evidence</td><td>0.7000</td><td>0.8500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-15</td><td>format</td><td>0.3000</td><td>0.2000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-16</td><td>evidence</td><td>0.4000</td><td>0.5500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-17</td><td>format</td><td>0.5000</td><td>0.6500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-18</td><td>evidence</td><td>0.6000</td><td>0.5000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-19</td><td>format</td><td>0.7000</td><td>0.8500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-20</td><td>evidence</td><td>0.3000</td><td>0.4500</td><td>0.1500</td><td>0.1500</td></tr><tr><td>case-21</td><td>format</td><td>0.4000</td><td>0.3000</td><td>-0.1000</td><td>-0.1000</td></tr><tr><td>case-22</td><td>evidence</td><td>0.5000</td><td>0.6500</td><td>0.1500</td><td>0.1500</td></tr></table></section><details><summary>Full audit record</summary><pre>{
+  &quot;schema_version&quot;: 1,
+  &quot;baseline&quot;: {
+    &quot;run_id&quot;: &quot;synthetic-baseline&quot;,
+    &quot;sha256&quot;: &quot;50dc65fc2d9a5d14fe371b5f9c56684b1e1f3ed1e1f5d0686c1b84649358ded7&quot;
+  },
+  &quot;candidate&quot;: {
+    &quot;run_id&quot;: &quot;synthetic-candidate&quot;,
+    &quot;sha256&quot;: &quot;b8a6da37b45910f88567eb25cf90e8c6234f9597ba6976f46b7f85fe9fd137c4&quot;
+  },
+  &quot;dataset_id&quot;: &quot;authored-demo&quot;,
+  &quot;dataset_version&quot;: &quot;1&quot;,
+  &quot;metric&quot;: &quot;authored rubric score&quot;,
+  &quot;direction&quot;: &quot;higher&quot;,
+  &quot;method&quot;: {
+    &quot;name&quot;: &quot;paired percentile bootstrap of mean improvement&quot;,
+    &quot;resamples&quot;: 2000,
+    &quot;seed&quot;: 17,
+    &quot;confidence&quot;: 0.95
+  },
+  &quot;coverage&quot;: {
+    &quot;baseline_count&quot;: 24,
+    &quot;candidate_count&quot;: 24,
+    &quot;matched&quot;: 23,
+    &quot;baseline_only&quot;: [
+      &quot;case-23&quot;
+    ],
+    &quot;candidate_only&quot;: [
+      &quot;candidate-only&quot;
+    ],
+    &quot;complete&quot;: false
+  },
+  &quot;overall&quot;: {
+    &quot;n&quot;: 23,
+    &quot;baseline_mean&quot;: 0.4869565217391304,
+    &quot;candidate_mean&quot;: 0.55,
+    &quot;mean_improvement&quot;: 0.06304347826086958,
+    &quot;ci95&quot;: [
+      0.019565217391304356,
+      0.1065217391304348
+    ],
+    &quot;signal&quot;: &quot;positive_interval&quot;,
+    &quot;warnings&quot;: []
+  },
+  &quot;slices&quot;: {
+    &quot;evidence&quot;: {
+      &quot;n&quot;: 12,
+      &quot;baseline_mean&quot;: 0.48333333333333334,
+      &quot;candidate_mean&quot;: 0.5499999999999999,
+      &quot;mean_improvement&quot;: 0.0666666666666667,
+      &quot;ci95&quot;: [
+        0.004166666666666675,
+        0.12916666666666668
+      ],
+      &quot;signal&quot;: &quot;uncertain&quot;,
+      &quot;warnings&quot;: [
+        &quot;Small sample (fewer than 20 pairs); interval may be unstable.&quot;
+      ]
+    },
+    &quot;format&quot;: {
+      &quot;n&quot;: 11,
+      &quot;baseline_mean&quot;: 0.49090909090909096,
+      &quot;candidate_mean&quot;: 0.5499999999999999,
+      &quot;mean_improvement&quot;: 0.059090909090909104,
+      &quot;ci95&quot;: [
+        -0.009090909090909078,
+        0.12727272727272732
+      ],
+      &quot;signal&quot;: &quot;uncertain&quot;,
+      &quot;warnings&quot;: [
+        &quot;Small sample (fewer than 20 pairs); interval may be unstable.&quot;
+      ]
+    }
+  },
+  &quot;items&quot;: [
+    {
+      &quot;id&quot;: &quot;case-00&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.3,
+      &quot;candidate&quot;: 0.2,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-01&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.4,
+      &quot;candidate&quot;: 0.55,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-02&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.5,
+      &quot;candidate&quot;: 0.65,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-03&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.6,
+      &quot;candidate&quot;: 0.5,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-04&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.7,
+      &quot;candidate&quot;: 0.85,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-05&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.3,
+      &quot;candidate&quot;: 0.45,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-06&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.4,
+      &quot;candidate&quot;: 0.3,
+      &quot;raw_delta&quot;: -0.10000000000000003,
+      &quot;improvement&quot;: -0.10000000000000003
+    },
+    {
+      &quot;id&quot;: &quot;case-07&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.5,
+      &quot;candidate&quot;: 0.65,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-08&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.6,
+      &quot;candidate&quot;: 0.75,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-09&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.7,
+      &quot;candidate&quot;: 0.6,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-10&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.3,
+      &quot;candidate&quot;: 0.45,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-11&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.4,
+      &quot;candidate&quot;: 0.55,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-12&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.5,
+      &quot;candidate&quot;: 0.4,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-13&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.6,
+      &quot;candidate&quot;: 0.75,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-14&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.7,
+      &quot;candidate&quot;: 0.85,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-15&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.3,
+      &quot;candidate&quot;: 0.2,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-16&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.4,
+      &quot;candidate&quot;: 0.55,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-17&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.5,
+      &quot;candidate&quot;: 0.65,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-18&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.6,
+      &quot;candidate&quot;: 0.5,
+      &quot;raw_delta&quot;: -0.09999999999999998,
+      &quot;improvement&quot;: -0.09999999999999998
+    },
+    {
+      &quot;id&quot;: &quot;case-19&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.7,
+      &quot;candidate&quot;: 0.85,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-20&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.3,
+      &quot;candidate&quot;: 0.45,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    },
+    {
+      &quot;id&quot;: &quot;case-21&quot;,
+      &quot;slice&quot;: &quot;format&quot;,
+      &quot;baseline&quot;: 0.4,
+      &quot;candidate&quot;: 0.3,
+      &quot;raw_delta&quot;: -0.10000000000000003,
+      &quot;improvement&quot;: -0.10000000000000003
+    },
+    {
+      &quot;id&quot;: &quot;case-22&quot;,
+      &quot;slice&quot;: &quot;evidence&quot;,
+      &quot;baseline&quot;: 0.5,
+      &quot;candidate&quot;: 0.65,
+      &quot;raw_delta&quot;: 0.15000000000000002,
+      &quot;improvement&quot;: 0.15000000000000002
+    }
+  ],
+  &quot;notice&quot;: &quot;Imported scores are not independently verified. Paired intervals assume independent representative items; they do not account for evaluator/model randomness, multiple comparisons, or missing-item bias. Positive improvement is better under the declared direction. No production or significance guarantee.&quot;
+}</pre></details></html>

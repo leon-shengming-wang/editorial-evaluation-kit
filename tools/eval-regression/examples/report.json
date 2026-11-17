@@ -1,0 +1,262 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "run_id": "synthetic-baseline",
+    "sha256": "50dc65fc2d9a5d14fe371b5f9c56684b1e1f3ed1e1f5d0686c1b84649358ded7"
+  },
+  "candidate": {
+    "run_id": "synthetic-candidate",
+    "sha256": "b8a6da37b45910f88567eb25cf90e8c6234f9597ba6976f46b7f85fe9fd137c4"
+  },
+  "dataset_id": "authored-demo",
+  "dataset_version": "1",
+  "metric": "authored rubric score",
+  "direction": "higher",
+  "method": {
+    "name": "paired percentile bootstrap of mean improvement",
+    "resamples": 2000,
+    "seed": 17,
+    "confidence": 0.95
+  },
+  "coverage": {
+    "baseline_count": 24,
+    "candidate_count": 24,
+    "matched": 23,
+    "baseline_only": [
+      "case-23"
+    ],
+    "candidate_only": [
+      "candidate-only"
+    ],
+    "complete": false
+  },
+  "overall": {
+    "n": 23,
+    "baseline_mean": 0.4869565217391304,
+    "candidate_mean": 0.55,
+    "mean_improvement": 0.06304347826086958,
+    "ci95": [
+      0.019565217391304356,
+      0.1065217391304348
+    ],
+    "signal": "positive_interval",
+    "warnings": []
+  },
+  "slices": {
+    "evidence": {
+      "n": 12,
+      "baseline_mean": 0.48333333333333334,
+      "candidate_mean": 0.5499999999999999,
+      "mean_improvement": 0.0666666666666667,
+      "ci95": [
+        0.004166666666666675,
+        0.12916666666666668
+      ],
+      "signal": "uncertain",
+      "warnings": [
+        "Small sample (fewer than 20 pairs); interval may be unstable."
+      ]
+    },
+    "format": {
+      "n": 11,
+      "baseline_mean": 0.49090909090909096,
+      "candidate_mean": 0.5499999999999999,
+      "mean_improvement": 0.059090909090909104,
+      "ci95": [
+        -0.009090909090909078,
+        0.12727272727272732
+      ],
+      "signal": "uncertain",
+      "warnings": [
+        "Small sample (fewer than 20 pairs); interval may be unstable."
+      ]
+    }
+  },
+  "items": [
+    {
+      "id": "case-00",
+      "slice": "evidence",
+      "baseline": 0.3,
+      "candidate": 0.2,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-01",
+      "slice": "format",
+      "baseline": 0.4,
+      "candidate": 0.55,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-02",
+      "slice": "evidence",
+      "baseline": 0.5,
+      "candidate": 0.65,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-03",
+      "slice": "format",
+      "baseline": 0.6,
+      "candidate": 0.5,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-04",
+      "slice": "evidence",
+      "baseline": 0.7,
+      "candidate": 0.85,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-05",
+      "slice": "format",
+      "baseline": 0.3,
+      "candidate": 0.45,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-06",
+      "slice": "evidence",
+      "baseline": 0.4,
+      "candidate": 0.3,
+      "raw_delta": -0.10000000000000003,
+      "improvement": -0.10000000000000003
+    },
+    {
+      "id": "case-07",
+      "slice": "format",
+      "baseline": 0.5,
+      "candidate": 0.65,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-08",
+      "slice": "evidence",
+      "baseline": 0.6,
+      "candidate": 0.75,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-09",
+      "slice": "format",
+      "baseline": 0.7,
+      "candidate": 0.6,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-10",
+      "slice": "evidence",
+      "baseline": 0.3,
+      "candidate": 0.45,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-11",
+      "slice": "format",
+      "baseline": 0.4,
+      "candidate": 0.55,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-12",
+      "slice": "evidence",
+      "baseline": 0.5,
+      "candidate": 0.4,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-13",
+      "slice": "format",
+      "baseline": 0.6,
+      "candidate": 0.75,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-14",
+      "slice": "evidence",
+      "baseline": 0.7,
+      "candidate": 0.85,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-15",
+      "slice": "format",
+      "baseline": 0.3,
+      "candidate": 0.2,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-16",
+      "slice": "evidence",
+      "baseline": 0.4,
+      "candidate": 0.55,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-17",
+      "slice": "format",
+      "baseline": 0.5,
+      "candidate": 0.65,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-18",
+      "slice": "evidence",
+      "baseline": 0.6,
+      "candidate": 0.5,
+      "raw_delta": -0.09999999999999998,
+      "improvement": -0.09999999999999998
+    },
+    {
+      "id": "case-19",
+      "slice": "format",
+      "baseline": 0.7,
+      "candidate": 0.85,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-20",
+      "slice": "evidence",
+      "baseline": 0.3,
+      "candidate": 0.45,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    },
+    {
+      "id": "case-21",
+      "slice": "format",
+      "baseline": 0.4,
+      "candidate": 0.3,
+      "raw_delta": -0.10000000000000003,
+      "improvement": -0.10000000000000003
+    },
+    {
+      "id": "case-22",
+      "slice": "evidence",
+      "baseline": 0.5,
+      "candidate": 0.65,
+      "raw_delta": 0.15000000000000002,
+      "improvement": 0.15000000000000002
+    }
+  ],
+  "notice": "Imported scores are not independently verified. Paired intervals assume independent representative items; they do not account for evaluator/model randomness, multiple comparisons, or missing-item bias. Positive improvement is better under the declared direction. No production or significance guarantee."
+}

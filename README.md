@@ -7,6 +7,8 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Evaluation Regression Lab](tools/eval-regression/README.md): compare matched scored runs with coverage gaps, slice summaries and reproducible paired bootstrap intervals.
+
 - [Retrieval Scorecard](tools/retrieval-scorecard/README.md): inspect ranked retrieval against supplied judgments, with precision, recall, MRR and graded nDCG evidence.
 
 - [Judge Order Audit](tools/judge-order-audit/README.md): audit saved A/B and B/A judge decisions for order sensitivity, with explicit coverage and pair-level evidence.
