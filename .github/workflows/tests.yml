@@ -46,3 +46,7 @@ jobs:
       - name: Test evidence drift WIP foundation
         working-directory: tools/evidence-drift
         run: python -m unittest discover -s tests -v
+
+      - name: Test judge order audit
+        working-directory: tools/judge-order-audit
+        run: python -m unittest discover -s tests -v

@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Judge Order Audit</title><style>
+body{margin:0;background:#f6f5f0;color:#192f2c;font:16px/1.6 system-ui,sans-serif}main{max-width:1100px;margin:auto;padding:40px 24px}h1{font-size:clamp(32px,6vw,56px);letter-spacing:-2px;margin:10px 0}.kicker{text-transform:uppercase;letter-spacing:3px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:28px 0}.card{background:white;border:1px solid #d6dfda;border-radius:14px;padding:22px}.card b{display:block;font-size:30px}.card span{font-size:13px}.notice{background:#e4eee8;padding:20px;border-left:4px solid #456c59}.table{overflow:auto}table{width:100%;border-collapse:collapse;background:white}th,td{text-align:left;padding:14px;vertical-align:top;border-bottom:1px solid #ddd}thead{background:#193f36;color:white}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 monospace}summary{cursor:pointer}footer{margin-top:32px;font-size:13px;color:#53645d}code{overflow-wrap:anywhere}</style><main>
+<div class="kicker">Evaluation reliability · local audit</div><h1>Does the preference survive a swap?</h1><p>Judge: Synthetic fixture — no model executed<br>Rubric: Prefer the response that follows the requested format and supplies supported information.</p>
+<p class="notice"><strong>SYNTHETIC INPUT</strong> · This report audits supplied decisions. No model was called. Order stability does not establish correctness or human agreement. A flip is a review signal, not proof of causal position bias.</p>
+<div class="card"><b>9</b><span>Cases</span></div><div class="card"><b>7 / 9</b><span>Complete pairs</span></div><div class="card"><b>2 / 4</b><span>Flips / decisive pairs</span></div><div class="card"><b>50.0%</b><span>Flip rate, decisive pairs</span></div><h2>Coverage before conclusions</h2><p>consistent: 2 · flipped: 2 · tie: 2 · abstain: 1 · missing: 2</p><p>Observed runs: 15 / 18. Both tied: 1. Tie versus decisive preference: 1. First-position picks: 6 / 11 decisive runs (54.5%); this includes incomplete pairs and is descriptive only.</p>
+<p>Original order is [A, B]; swapped order is [B, A]. “First” and “second” are displayed positions, not answer identities. Missing takes precedence over abstain, then tie; only two decisive preferences enter the flip-rate denominator.</p>
+<h2>Pair-by-pair evidence</h2><div class="table"><table><thead><tr><th>Case</th><th>Original → identity</th><th>Swapped → identity</th><th>Outcome</th></tr></thead><tbody><tr><th scope="row">stable-a</th><td>first → A</td><td>second → A</td><td><strong>consistent</strong><br>Same original answer preferred in both orders</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;second&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">stable-b</th><td>second → B</td><td>first → B</td><td><strong>consistent</strong><br>Same original answer preferred in both orders</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;second&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">first-position</th><td>first → A</td><td>first → B</td><td><strong>flipped</strong><br>Different original answers preferred after order reversal</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">second-position</th><td>second → B</td><td>second → A</td><td><strong>flipped</strong><br>Different original answers preferred after order reversal</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;second&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;second&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">both-tie</th><td>tie → tie</td><td>tie → tie</td><td><strong>tie</strong><br>Both tied</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;tie&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;tie&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">tie-changed</th><td>tie → tie</td><td>first → B</td><td><strong>tie</strong><br>Tie versus decisive preference</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;tie&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">abstained</th><td>abstain → abstain</td><td>second → A</td><td><strong>abstain</strong><br>At least one abstention</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;abstain&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre><h4>Swapped run record</h4><pre>{
+  &quot;verdict&quot;: &quot;second&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">missing-swap</th><td>first → A</td><td>Missing → missing</td><td><strong>missing</strong><br>One run missing</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre><h4>Original run record</h4><pre>{
+  &quot;verdict&quot;: &quot;first&quot;,
+  &quot;reason&quot;: &quot;Synthetic fixture.&quot;
+}</pre></details></td></tr><tr><th scope="row">missing-both</th><td>Missing → missing</td><td>Missing → missing</td><td><strong>missing</strong><br>Both runs missing</td></tr><tr><td colspan="4"><details><summary>Inspect input evidence</summary><h4>Prompt</h4><pre>Synthetic example; these decisions are test fixtures, not model measurements.</pre></details></td></tr></tbody></table></div>
+<h2>Review next</h2><p>Inspect flipped and tie-changed cases with the original rubric. Recover missing runs before comparing datasets. Keep model version, prompt, sampling and rubric fixed across paired runs, and repeat with independent runs before attributing changes to ordering.</p><p>Hand-authored categorical decisions for exercising coverage and mapping. These are not measured model outcomes.</p><footer>Deterministic input fingerprint: <code>0d4fa876cf737239b96639b545d4f1173a3b1684fe0b45176a3ceb1fbf8cf675</code><br>No scripts, remote fonts, analytics or network dependencies. Imported text is escaped.</footer></main></html>

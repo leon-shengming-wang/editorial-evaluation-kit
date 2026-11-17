@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "data_kind": "synthetic",
+  "judge": "Synthetic fixture \u2014 no model executed",
+  "rubric": "Prefer the response that follows the requested format and supplies supported information.",
+  "notes": "Hand-authored categorical decisions for exercising coverage and mapping. These are not measured model outcomes.",
+  "cases": [
+    {
+      "id": "stable-a",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "stable-b",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "first-position",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "second-position",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "both-tie",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "tie-changed",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "abstained",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "abstain",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      }
+    },
+    {
+      "id": "missing-swap",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": null
+    },
+    {
+      "id": "missing-both",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": null,
+      "swapped": null
+    }
+  ]
+}

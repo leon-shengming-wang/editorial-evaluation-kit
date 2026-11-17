@@ -1,0 +1,167 @@
+{
+  "report_version": 1,
+  "input_sha256": "0d4fa876cf737239b96639b545d4f1173a3b1684fe0b45176a3ceb1fbf8cf675",
+  "data_kind": "synthetic",
+  "judge": "Synthetic fixture — no model executed",
+  "rubric": "Prefer the response that follows the requested format and supplies supported information.",
+  "notes": "Hand-authored categorical decisions for exercising coverage and mapping. These are not measured model outcomes.",
+  "summary": {
+    "cases": 9,
+    "expected_runs": 18,
+    "observed_runs": 15,
+    "complete_pairs": 7,
+    "complete_pair_rate": 0.777778,
+    "decisive_pairs": 4,
+    "categories": {
+      "consistent": 2,
+      "flipped": 2,
+      "tie": 2,
+      "abstain": 1,
+      "missing": 2
+    },
+    "consistent_rate_decisive_pairs": 0.5,
+    "flip_rate_decisive_pairs": 0.5,
+    "both_tied": 1,
+    "tie_changed": 1,
+    "first_position_picks": 6,
+    "decisive_runs": 11,
+    "first_position_pick_rate": 0.545455
+  },
+  "cases": [
+    {
+      "id": "stable-a",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "A",
+      "normalized_swapped": "A",
+      "category": "consistent",
+      "detail": "Same original answer preferred in both orders"
+    },
+    {
+      "id": "stable-b",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "B",
+      "normalized_swapped": "B",
+      "category": "consistent",
+      "detail": "Same original answer preferred in both orders"
+    },
+    {
+      "id": "first-position",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "A",
+      "normalized_swapped": "B",
+      "category": "flipped",
+      "detail": "Different original answers preferred after order reversal"
+    },
+    {
+      "id": "second-position",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "B",
+      "normalized_swapped": "A",
+      "category": "flipped",
+      "detail": "Different original answers preferred after order reversal"
+    },
+    {
+      "id": "both-tie",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "tie",
+      "normalized_swapped": "tie",
+      "category": "tie",
+      "detail": "Both tied"
+    },
+    {
+      "id": "tie-changed",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "tie",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "tie",
+      "normalized_swapped": "B",
+      "category": "tie",
+      "detail": "Tie versus decisive preference"
+    },
+    {
+      "id": "abstained",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "abstain",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": {
+        "verdict": "second",
+        "reason": "Synthetic fixture."
+      },
+      "normalized_original": "abstain",
+      "normalized_swapped": "A",
+      "category": "abstain",
+      "detail": "At least one abstention"
+    },
+    {
+      "id": "missing-swap",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": {
+        "verdict": "first",
+        "reason": "Synthetic fixture."
+      },
+      "swapped": null,
+      "normalized_original": "A",
+      "normalized_swapped": null,
+      "category": "missing",
+      "detail": "One run missing"
+    },
+    {
+      "id": "missing-both",
+      "prompt": "Synthetic example; these decisions are test fixtures, not model measurements.",
+      "original": null,
+      "swapped": null,
+      "normalized_original": null,
+      "normalized_swapped": null,
+      "category": "missing",
+      "detail": "Both runs missing"
+    }
+  ]
+}

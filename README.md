@@ -7,6 +7,8 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Judge Order Audit](tools/judge-order-audit/README.md): audit saved A/B and B/A judge decisions for order sensitivity, with explicit coverage and pair-level evidence.
+
 - [Try Contrast: batch answer comparison](tools/answer-compare/README.md): import JSON/JSONL answer pairs, run explicit instruction checks, then record evidence-backed human decisions and export the review.
 
 - [Try Ledger: claim & evidence workbench](tools/claim-evidence/README.md): automatically extract claim candidates, retrieve cited passages, inspect discrepancy cues and export human adjudication. Local analysis does not assign truth verdicts.
