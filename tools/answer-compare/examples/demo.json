@@ -1,0 +1,112 @@
+{
+  "cases": [
+    {
+      "id": "launch-brief",
+      "prompt": "Summarize the fictional launch in at most 35 words. Include March 12 and beta. Do not claim it is guaranteed.",
+      "answer_a": "The beta opens March 12 to invited testers. Feedback will guide the next release; availability may change.",
+      "answer_b": "The beta opens March 12. Success is guaranteed.",
+      "constraints": [
+        {
+          "type": "max_words",
+          "value": 35
+        },
+        {
+          "type": "required_terms",
+          "value": [
+            "March 12",
+            "beta"
+          ]
+        },
+        {
+          "type": "forbidden_terms",
+          "value": [
+            "guaranteed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "three-actions",
+      "prompt": "Give exactly three unordered bullet points for preparing an interview.",
+      "answer_a": "- Review the role.\n- Prepare evidence.\n- Test your microphone.",
+      "answer_b": "1. Review the role.\n2. Prepare evidence.\n3. Test your microphone.",
+      "constraints": [
+        {
+          "type": "exact_bullets",
+          "value": 3
+        }
+      ]
+    },
+    {
+      "id": "structured-output",
+      "prompt": "Return only a JSON object containing a summary.",
+      "answer_a": "{\"summary\":\"The pilot is complete.\"}",
+      "answer_b": "Here is the result:\n```json\n{\"summary\":\"The pilot is complete.\"}\n```",
+      "constraints": [
+        {
+          "type": "json_object"
+        }
+      ]
+    },
+    {
+      "id": "truth-is-not-format",
+      "prompt": "In under 20 words, state the capital of France.",
+      "answer_a": "Paris is the capital of France.",
+      "answer_b": "Berlin is the capital of France.",
+      "constraints": [
+        {
+          "type": "max_words",
+          "value": 20
+        }
+      ]
+    },
+    {
+      "id": "semantic-review",
+      "prompt": "Explain the trade-off without overstating certainty.",
+      "answer_a": "It may save time, but quality still needs review.",
+      "answer_b": "It is always perfect.",
+      "constraints": []
+    },
+    {
+      "id": "empty-response",
+      "prompt": "Give at most ten words about testing.",
+      "answer_a": "",
+      "answer_b": "Testing reveals defects before release.",
+      "constraints": [
+        {
+          "type": "max_words",
+          "value": 10
+        }
+      ]
+    },
+    {
+      "id": "plain-text",
+      "prompt": "Use plain text without Markdown.",
+      "answer_a": "Review evidence before deciding.",
+      "answer_b": "## Decision\n**Choose A.**",
+      "constraints": [
+        {
+          "type": "no_markdown"
+        }
+      ]
+    },
+    {
+      "id": "term-boundaries",
+      "prompt": "Mention art, not artist. Keep under 20 words.",
+      "answer_a": "Art can communicate an idea.",
+      "answer_b": "An artist communicates ideas.",
+      "constraints": [
+        {
+          "type": "required_terms",
+          "value": [
+            "art"
+          ]
+        },
+        {
+          "type": "max_words",
+          "value": 20
+        }
+      ]
+    }
+  ]
+}

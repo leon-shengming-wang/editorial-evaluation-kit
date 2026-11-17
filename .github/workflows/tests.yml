@@ -38,3 +38,7 @@ jobs:
       - name: Test claim evidence and discovery safety
         working-directory: tools/claim-evidence
         run: python -m unittest discover -s tests -v
+
+      - name: Test answer comparison and input boundaries
+        working-directory: tools/answer-compare
+        run: python -m unittest discover -s tests -v

@@ -7,6 +7,8 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Try Contrast: batch answer comparison](tools/answer-compare/README.md): import JSON/JSONL answer pairs, run explicit instruction checks, then record evidence-backed human decisions and export the review.
+
 - [Try Ledger: claim & evidence workbench](tools/claim-evidence/README.md): automatically extract claim candidates, retrieve cited passages, inspect discrepancy cues and export human adjudication. Local analysis does not assign truth verdicts.
 - [Try Signal: automatic speech QA](tools/speech-qa/README.md): import audio, run local transcription, and play transcript-difference evidence. Requires its own dependencies and model download; review candidates are not confirmed errors.
 - [Read a 60-second case walkthrough](docs/CASE-WALKTHROUGH.md), rendered directly on GitHub.
