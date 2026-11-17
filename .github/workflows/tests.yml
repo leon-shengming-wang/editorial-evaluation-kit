@@ -58,3 +58,7 @@ jobs:
       - name: Test evaluation regression lab
         working-directory: tools/eval-regression
         run: python -m unittest discover -s tests -v
+
+      - name: Test split guard
+        working-directory: tools/split-guard
+        run: python -m unittest discover -s tests -v

@@ -7,6 +7,9 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Split Guard](tools/split-guard/README.md): inspect cross-split exact and near-duplicate text candidates before trusting an evaluation dataset.
+- [Why these evaluation tools?](docs/EVALUATION-TOOL-SELECTION.md): public references, distinct scope and release standards.
+
 - [Evaluation Regression Lab](tools/eval-regression/README.md): compare matched scored runs with coverage gaps, slice summaries and reproducible paired bootstrap intervals.
 
 - [Retrieval Scorecard](tools/retrieval-scorecard/README.md): inspect ranked retrieval against supplied judgments, with precision, recall, MRR and graded nDCG evidence.

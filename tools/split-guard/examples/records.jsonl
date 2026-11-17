@@ -1,0 +1,7 @@
+{"id":"train-hours","split":"train","text":"The fictional gallery opens at nine and closes at five every weekday.","label":"weekday-hours"}
+{"id":"test-hours-copy","split":"test","text":"THE FICTIONAL GALLERY opens at nine and closes at five every weekday.","label":"weekend-hours"}
+{"id":"dev-hours-edit","split":"dev","text":"The fictional gallery opens at nine and closes at six every weekday.","label":"weekday-hours"}
+{"id":"test-unrelated","split":"test","text":"A local library offers free digital workshops on Saturday afternoons.","label":"education"}
+{"id":"train-short","split":"train","text":"Welcome home"}
+{"id":"dev-short","split":"dev","text":"Welcome home"}
+{"id":"test-short","split":"test","text":"Hello there"}

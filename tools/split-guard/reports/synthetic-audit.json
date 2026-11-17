@@ -1,0 +1,116 @@
+{
+  "engine": "splitguard-v1",
+  "input_sha256": "8110a04f37a4315e1b252d3ed3852421eda81463bcc276d0a623610cf2ac4303",
+  "settings": {
+    "threshold": 0.5,
+    "shingle_size": 3,
+    "normalization": "NFKC, casefold, collapsed whitespace; punctuation retained for exact"
+  },
+  "coverage": {
+    "records": 7,
+    "cross_split_pairs": 16,
+    "exact_pairs": 2,
+    "near_candidate_pairs_scored": 2,
+    "posting_visits": 24,
+    "near_ineligible_ids": [
+      "dev-short",
+      "test-short",
+      "train-short"
+    ],
+    "complete_within_declared_rules": true
+  },
+  "findings": [
+    {
+      "left_id": "dev-hours-edit",
+      "right_id": "test-hours-copy",
+      "left_split": "dev",
+      "right_split": "test",
+      "kind": "near_candidate",
+      "jaccard": 0.5384615384615384,
+      "shared_shingles": 7,
+      "union_shingles": 13,
+      "shared_examples": [
+        "and closes at",
+        "at nine and",
+        "fictional gallery opens",
+        "gallery opens at",
+        "nine and closes"
+      ],
+      "left_sha256": "c3272648fdcad4a0514e4ece06a45423516e6fa890e6c09da7552cf2e8e2f027",
+      "right_sha256": "84c6b055a6814b869dabcba7f0c17abcb5b8ab4f6877dee7eb0417323f67f5bb",
+      "left_excerpt": "The fictional gallery opens at nine and closes at six every weekday.",
+      "right_excerpt": "THE FICTIONAL GALLERY opens at nine and closes at five every weekday.",
+      "label_conflict": true,
+      "left_label": "weekday-hours",
+      "right_label": "weekend-hours"
+    },
+    {
+      "left_id": "dev-hours-edit",
+      "right_id": "train-hours",
+      "left_split": "dev",
+      "right_split": "train",
+      "kind": "near_candidate",
+      "jaccard": 0.5384615384615384,
+      "shared_shingles": 7,
+      "union_shingles": 13,
+      "shared_examples": [
+        "and closes at",
+        "at nine and",
+        "fictional gallery opens",
+        "gallery opens at",
+        "nine and closes"
+      ],
+      "left_sha256": "c3272648fdcad4a0514e4ece06a45423516e6fa890e6c09da7552cf2e8e2f027",
+      "right_sha256": "a9c472c525be9b48964a23b0ca45c007305cc3478101e71837ff5d1ccea073b0",
+      "left_excerpt": "The fictional gallery opens at nine and closes at six every weekday.",
+      "right_excerpt": "The fictional gallery opens at nine and closes at five every weekday.",
+      "label_conflict": false,
+      "left_label": "weekday-hours",
+      "right_label": "weekday-hours"
+    },
+    {
+      "left_id": "dev-short",
+      "right_id": "train-short",
+      "left_split": "dev",
+      "right_split": "train",
+      "kind": "normalized_exact",
+      "jaccard": null,
+      "shared_shingles": 0,
+      "union_shingles": 0,
+      "shared_examples": [],
+      "left_sha256": "33efc2e837abdc7b5ec52bf4416012539101097935f45254adfdc4c80a32413d",
+      "right_sha256": "33efc2e837abdc7b5ec52bf4416012539101097935f45254adfdc4c80a32413d",
+      "left_excerpt": "Welcome home",
+      "right_excerpt": "Welcome home",
+      "label_conflict": null,
+      "left_label": null,
+      "right_label": null
+    },
+    {
+      "left_id": "test-hours-copy",
+      "right_id": "train-hours",
+      "left_split": "test",
+      "right_split": "train",
+      "kind": "normalized_exact",
+      "jaccard": 1.0,
+      "shared_shingles": 10,
+      "union_shingles": 10,
+      "shared_examples": [
+        "and closes at",
+        "at five every",
+        "at nine and",
+        "closes at five",
+        "fictional gallery opens"
+      ],
+      "left_sha256": "84c6b055a6814b869dabcba7f0c17abcb5b8ab4f6877dee7eb0417323f67f5bb",
+      "right_sha256": "a9c472c525be9b48964a23b0ca45c007305cc3478101e71837ff5d1ccea073b0",
+      "left_excerpt": "THE FICTIONAL GALLERY opens at nine and closes at five every weekday.",
+      "right_excerpt": "The fictional gallery opens at nine and closes at five every weekday.",
+      "label_conflict": true,
+      "left_label": "weekend-hours",
+      "right_label": "weekday-hours"
+    }
+  ],
+  "notice": "Similarity candidates require human review. No records are deleted. This is not proof that a model trained on a benchmark.",
+  "dataset_notice": "SYNTHETIC DEMONSTRATION: authored fictional examples, not measured model outputs or private platform data."
+}
