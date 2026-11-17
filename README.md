@@ -105,3 +105,7 @@ reports/             Reproducible example outputs
 Report files are staged before replacement so invalid destinations do not produce a partial report. Each file replacement is atomic, but replacing two outputs is not a single filesystem transaction; a process crash between replacements can leave different generations. Regenerate both outputs together after an interrupted run.
 
 No hiring outcome or production readiness is implied.
+
+## Signal: automatic speech QA
+
+[Import audio, run local ASR, inspect word timing and export evidence](tools/speech-qa/README.md). A separate audio pipeline with a loopback upload UI, independent speech-activity checks and optional expected-script comparison, not another text-only form.

@@ -14,3 +14,7 @@ my-agreement.*
 
 my-review-desk.html
 reviewbench-private-draft*.json
+
+# Never commit private speech recordings or local environments
+.venv/
+speech-private*/

@@ -30,3 +30,7 @@ jobs:
       - name: Test design-spec companion
         working-directory: tools/layout-preflight
         run: python -m unittest discover -s tests -v
+
+      - name: Test speech QA rules and report safety
+        working-directory: tools/speech-qa
+        run: python -m unittest discover -s tests -v

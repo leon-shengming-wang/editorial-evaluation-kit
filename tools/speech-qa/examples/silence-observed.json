@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "elapsed_seconds": 4.604,
+  "audio_sha256": "d303811b8c84619667cd0501342f84ec6cbe69f7aa3856dcf52fabda374c92b8",
+  "duration": 3.0,
+  "model": "tiny.en",
+  "language": "en",
+  "engine": "faster-whisper",
+  "engine_version": "1.1.1",
+  "settings": {
+    "device": "cpu",
+    "compute_type": "int8",
+    "beam_size": 5,
+    "word_timestamps": true,
+    "vad_filter": false
+  },
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.48,
+      "text": " You",
+      "avg_logprob": -0.9239917695522308,
+      "no_speech_prob": 0.9491427540779114,
+      "compression_ratio": 0.2727272727272727,
+      "words": [
+        {
+          "start": 0.0,
+          "end": 1.48,
+          "word": " You",
+          "probability": 0.024792827665805817
+        }
+      ]
+    }
+  ],
+  "speech_spans": [],
+  "flags": [
+    {
+      "kind": "uncertainty",
+      "start": 0,
+      "end": 1.48,
+      "evidence": "Average token log probability -0.924 is below heuristic -0.8; listen before judging.",
+      "segment": 0
+    },
+    {
+      "kind": "uncertainty",
+      "start": 0,
+      "end": 1.48,
+      "evidence": "Model word probability 0.025 below heuristic .55:  You",
+      "segment": 0
+    },
+    {
+      "kind": "unsupported-speech",
+      "start": 0,
+      "end": 1.48,
+      "evidence": "Less than 10% of this segment overlaps independent speech activity. Could be quiet speech, VAD failure or unsupported ASR text.",
+      "segment": 0
+    }
+  ],
+  "reference_comparison": null
+}
