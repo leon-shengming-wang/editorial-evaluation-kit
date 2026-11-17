@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "queries": [
+    {
+      "id": "museum-hours",
+      "judgments": [
+        {
+          "document_id": "official-hours",
+          "relevance": 3
+        },
+        {
+          "document_id": "visitor-guide",
+          "relevance": 1
+        },
+        {
+          "document_id": "gift-shop",
+          "relevance": 0
+        }
+      ]
+    },
+    {
+      "id": "accessibility",
+      "judgments": [
+        {
+          "document_id": "access-guide",
+          "relevance": 2
+        }
+      ]
+    },
+    {
+      "id": "unanswerable-synthetic-query",
+      "judgments": []
+    }
+  ]
+}

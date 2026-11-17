@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "run_id": "synthetic-demo-not-a-benchmark",
+  "queries": [
+    {
+      "id": "museum-hours",
+      "documents": [
+        "unknown-blog",
+        "visitor-guide",
+        "official-hours"
+      ]
+    },
+    {
+      "id": "extra-query-excluded",
+      "documents": [
+        "other"
+      ]
+    }
+  ]
+}

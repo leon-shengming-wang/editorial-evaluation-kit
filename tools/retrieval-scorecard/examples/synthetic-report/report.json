@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "engine": "retrieval-scorecard-v1",
+  "run_id": "synthetic-demo-not-a-benchmark",
+  "k": 3,
+  "input_sha256": {
+    "qrels": "7d47c1f18f05f97844563d3f71ef533788d8c7afbda65a4cb84354a44ababf01",
+    "run": "940cce26ccd78c30ed3f5bb20ed215d456a015d35805888742461f47271922c1"
+  },
+  "policy": {
+    "gain": "linear relevance / log2(rank + 1)",
+    "binary_relevance": "grade > 0",
+    "unjudged": "gain zero; retained in ranking",
+    "query_universe": "all qrels queries; extra run queries excluded",
+    "zero_relevance": "recall and nDCG set to zero; included in macro mean",
+    "precision_denominator": "k even for short runs"
+  },
+  "excluded_run_queries": [
+    "extra-query-excluded"
+  ],
+  "summary": {
+    "precision_at_k": 0.2222222222222222,
+    "recall_at_k": 0.3333333333333333,
+    "mrr_at_k": 0.16666666666666666,
+    "ndcg_at_k": 0.19562755714523997,
+    "query_count": 3,
+    "missing_run_queries": 2,
+    "zero_relevance_queries": 1
+  },
+  "queries": [
+    {
+      "query_id": "accessibility",
+      "missing_run_query": true,
+      "judged_documents": 1,
+      "relevant_documents": 1,
+      "retrieved_total": 0,
+      "retrieved_at_k": 0,
+      "unjudged_at_k": 0,
+      "relevant_at_k": 0,
+      "precision_at_k": 0.0,
+      "recall_at_k": 0.0,
+      "rr_at_k": 0.0,
+      "dcg_at_k": 0.0,
+      "ideal_dcg_at_k": 2.0,
+      "ndcg_at_k": 0.0,
+      "ndcg_gain_scale": 2,
+      "scaled_dcg_at_k": 0.0,
+      "scaled_ideal_dcg_at_k": 1.0,
+      "ranking_evidence": [],
+      "ideal_ranking_evidence": [
+        {
+          "rank": 1,
+          "document_id": "access-guide",
+          "gain": 2,
+          "dcg_contribution": 2.0
+        }
+      ]
+    },
+    {
+      "query_id": "museum-hours",
+      "missing_run_query": false,
+      "judged_documents": 3,
+      "relevant_documents": 2,
+      "retrieved_total": 3,
+      "retrieved_at_k": 3,
+      "unjudged_at_k": 1,
+      "relevant_at_k": 2,
+      "precision_at_k": 0.6666666666666666,
+      "recall_at_k": 1.0,
+      "rr_at_k": 0.5,
+      "dcg_at_k": 2.1309297535714578,
+      "ideal_dcg_at_k": 3.6309297535714578,
+      "ndcg_at_k": 0.5868826714357199,
+      "ndcg_gain_scale": 3,
+      "scaled_dcg_at_k": 0.7103099178571525,
+      "scaled_ideal_dcg_at_k": 1.2103099178571526,
+      "ranking_evidence": [
+        {
+          "rank": 1,
+          "document_id": "unknown-blog",
+          "judged": false,
+          "relevance": null,
+          "gain": 0,
+          "relevant": false,
+          "dcg_contribution": 0.0
+        },
+        {
+          "rank": 2,
+          "document_id": "visitor-guide",
+          "judged": true,
+          "relevance": 1,
+          "gain": 1,
+          "relevant": true,
+          "dcg_contribution": 0.6309297535714575
+        },
+        {
+          "rank": 3,
+          "document_id": "official-hours",
+          "judged": true,
+          "relevance": 3,
+          "gain": 3,
+          "relevant": true,
+          "dcg_contribution": 1.5
+        }
+      ],
+      "ideal_ranking_evidence": [
+        {
+          "rank": 1,
+          "document_id": "official-hours",
+          "gain": 3,
+          "dcg_contribution": 3.0
+        },
+        {
+          "rank": 2,
+          "document_id": "visitor-guide",
+          "gain": 1,
+          "dcg_contribution": 0.6309297535714575
+        },
+        {
+          "rank": 3,
+          "document_id": "gift-shop",
+          "gain": 0,
+          "dcg_contribution": 0.0
+        }
+      ]
+    },
+    {
+      "query_id": "unanswerable-synthetic-query",
+      "missing_run_query": true,
+      "judged_documents": 0,
+      "relevant_documents": 0,
+      "retrieved_total": 0,
+      "retrieved_at_k": 0,
+      "unjudged_at_k": 0,
+      "relevant_at_k": 0,
+      "precision_at_k": 0.0,
+      "recall_at_k": 0.0,
+      "rr_at_k": 0.0,
+      "dcg_at_k": 0.0,
+      "ideal_dcg_at_k": 0.0,
+      "ndcg_at_k": 0.0,
+      "ndcg_gain_scale": 0,
+      "scaled_dcg_at_k": 0.0,
+      "scaled_ideal_dcg_at_k": 0.0,
+      "ranking_evidence": [],
+      "ideal_ranking_evidence": []
+    }
+  ],
+  "notice": "Offline scores depend on supplied judgments. They do not establish factual truth, answer quality, retrieval coverage, or real-world benchmark performance."
+}

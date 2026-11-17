@@ -7,6 +7,8 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Retrieval Scorecard](tools/retrieval-scorecard/README.md): inspect ranked retrieval against supplied judgments, with precision, recall, MRR and graded nDCG evidence.
+
 - [Judge Order Audit](tools/judge-order-audit/README.md): audit saved A/B and B/A judge decisions for order sensitivity, with explicit coverage and pair-level evidence.
 
 - [Try Contrast: batch answer comparison](tools/answer-compare/README.md): import JSON/JSONL answer pairs, run explicit instruction checks, then record evidence-backed human decisions and export the review.
