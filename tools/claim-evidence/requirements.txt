@@ -1,0 +1,2 @@
+# Needed only for explicitly approved public Wikimedia discovery.
+httpx[socks]==0.28.1

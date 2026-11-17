@@ -34,3 +34,7 @@ jobs:
       - name: Test speech QA rules and report safety
         working-directory: tools/speech-qa
         run: python -m unittest discover -s tests -v
+
+      - name: Test claim evidence and discovery safety
+        working-directory: tools/claim-evidence
+        run: python -m unittest discover -s tests -v

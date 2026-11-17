@@ -7,6 +7,7 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 
 ## Start here
 
+- [Try Ledger: claim & evidence workbench](tools/claim-evidence/README.md): automatically extract claim candidates, retrieve cited passages, inspect discrepancy cues and export human adjudication. Local analysis does not assign truth verdicts.
 - [Try Signal: automatic speech QA](tools/speech-qa/README.md): import audio, run local transcription, and play transcript-difference evidence. Requires its own dependencies and model download; review candidates are not confirmed errors.
 - [Read a 60-second case walkthrough](docs/CASE-WALKTHROUGH.md), rendered directly on GitHub.
 - [Download the visual case report](reports/index.html) using GitHub’s download-raw-file button, then open the downloaded HTML in your browser. GitHub’s source view does not run HTML.

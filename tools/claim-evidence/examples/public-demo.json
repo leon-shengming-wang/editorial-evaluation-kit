@@ -1,0 +1,26 @@
+{
+  "response": "NASA began operations in 1959. Apollo 11 landed on the Moon on July 20, 1969. Apollo 11 launched on July 20, 1969. Every space mission is completely safe. I think space exploration is inspiring.",
+  "sources": [
+    {
+      "title": "NASA: 65 Years Ago, NASA Begins Operations",
+      "url": "https://www.nasa.gov/history/65-years-ago-nasa-begins-operations/",
+      "text": "On Oct. 1, 1958, the National Aeronautics and Space Administration (NASA) officially began operations.",
+      "origin": "Short excerpt checked against NASA's public page; demo fixture, not live retrieval",
+      "retrieved_at": "2026-11-17"
+    },
+    {
+      "title": "NASA Science: Moonwalker Edwin Buzz Aldrin",
+      "url": "https://science.nasa.gov/resource/saturn-apollo-program-2/",
+      "text": "The Apollo 11 Lunar Module (LM) landed on the moon’s surface on July 20, 1969",
+      "origin": "Short excerpt checked against NASA Science's public page; demo fixture, not live retrieval",
+      "retrieved_at": "2026-11-17"
+    },
+    {
+      "title": "National Archives: Apollo 11 Flight Plan",
+      "url": "https://www.archives.gov/historical-docs/apollo-11-flight-plan",
+      "text": "The flight was launched July 16, 1969. Touchdown on the moon took place, as scheduled, on July 20",
+      "origin": "Short excerpts from National Archives; surrounding context omitted. Attribution does not establish independence from NASA.",
+      "retrieved_at": "2026-11-17"
+    }
+  ]
+}
