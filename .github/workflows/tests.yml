@@ -42,3 +42,7 @@ jobs:
       - name: Test answer comparison and input boundaries
         working-directory: tools/answer-compare
         run: python -m unittest discover -s tests -v
+
+      - name: Test evidence drift WIP foundation
+        working-directory: tools/evidence-drift
+        run: python -m unittest discover -s tests -v

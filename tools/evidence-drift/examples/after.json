@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "synthetic-v2",
+  "captured_at": "2026-01-02T12:00:00Z",
+  "sources": [
+    {
+      "id": "hours",
+      "url": "https://example.org/hours",
+      "title": "Synthetic museum hours",
+      "content": "Open Tuesday through Sunday, 11 AM to 5 PM."
+    },
+    {
+      "id": "access",
+      "url": "https://example.org/access",
+      "title": "Synthetic access",
+      "content": "The main entrance has a ramp."
+    }
+  ],
+  "answers": [
+    {
+      "id": "visit",
+      "text": "The museum opens at 10 AM and admission costs $10.",
+      "source_ids": [
+        "hours"
+      ]
+    },
+    {
+      "id": "accessibility",
+      "text": "The main entrance has a ramp.",
+      "source_ids": [
+        "access"
+      ]
+    }
+  ]
+}

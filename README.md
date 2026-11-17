@@ -21,6 +21,10 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 - [Read the verification record](docs/VERIFICATION.md).
 - [See actual issues found and corrected](docs/ENGINEERING-NOTES.md), including output consistency, numerical bounds, rubric calibration, and CI compatibility.
 
+## Work in progress: Evidence Drift Lab
+
+[Evidence Drift Lab](tools/evidence-drift/README.md) is an unfinished companion project with a working first increment: validate local evidence snapshots and report added, removed or changed sources. Semantic claim alignment, retrieval and a review interface are not implemented. Its status is explicit rather than presented as a finished AI product.
+
 ## An actual review workspace
 
 [Download the offline Review Desk](reports/review-desk.html) and open it in a browser. Review all 17 cases without embedded answers, keep drafts while switching cases, export your writing to JSON, and restore it later with input-version checks. [Read the workflow and privacy limits](docs/REVIEW-DESK.md). No account, network connection or paid model is needed.
