@@ -2,7 +2,7 @@
 
 Local validation on Python 3.9.6:
 
-- 52 unittest tests passed.
+- 61 unittest tests passed.
 - All 17 synthetic cases pass strict schema, exact evidence quote, and weighted decision checks.
 - Five categories are covered; decisions: five A, five B, four ties, three abstentions.
 - The regenerated 17-case report was inspected in Chrome on desktop, including the new semantic-review example. No remote fonts, scripts, API calls, or image requests are required.
@@ -11,6 +11,8 @@ Local validation on Python 3.9.6:
 - Report tests confirm HTML escaping for injected markup. CLI tests prevent overwriting input and reject invalid records before generating reports.
 
 An independent code pass exercised 198 malformed-value mutations without a crash. This is a bounded robustness check, not a security certification.
+
+- Practice export tests verify that reference labels, scores, rationales, evidence annotations and uncertainty fields are excluded; dataset source and candidate responses remain visible. Existing files are not overwritten.
 
 ## Hosted checks and remaining limits
 

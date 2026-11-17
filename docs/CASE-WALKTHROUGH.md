@@ -17,7 +17,7 @@ A fictional council has proposed extending library hours. No extension has been 
 
 ## Decision: B
 
-A is readable but turns a proposal into an approval. The word **“approves”** is the decisive defect. B preserves both the proposal and the pending vote. At 11 whitespace-delimited words, it also meets the explicit length constraint.
+A is readable but turns a proposal into an approval. The word **“approves”** is the decisive defect. B preserves both the proposal and the pending vote. At 10 whitespace-delimited words, it also meets the explicit length constraint.
 
 | Dimension | A | B |
 | --- | ---: | ---: |

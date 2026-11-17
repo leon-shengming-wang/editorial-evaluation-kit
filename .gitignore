@@ -4,3 +4,7 @@ __pycache__/
 .venv/
 
 *.sqlite3
+
+# Locally generated practice notes and archives are not portfolio evidence.
+my-practice.md
+*.zip

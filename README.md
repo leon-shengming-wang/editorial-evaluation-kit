@@ -16,6 +16,18 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 - [Inspect the SQL calibration workflow](docs/CALIBRATION.md).
 - [Read the verification record](docs/VERIFICATION.md).
 
+## Practice before reading the answer
+
+Export a worksheet without reference scores, labels or rationales:
+
+```bash
+python3 -m reviewbench.practice data/cases.jsonl --category language --category audio --output my-practice.md
+```
+
+[Open the ready-to-use blank worksheet](docs/PRACTICE-WORKSHEET.md).
+
+The exporter refuses to overwrite an existing file, protecting your notes. Read the supplied source, form a decision and quote evidence before comparing it with the authored reference. This reduces answer anchoring; it is not a secure or independently administered assessment. Keep real review notes private unless you have checked their contents. If an export is interrupted or disk writing fails, a newly created worksheet can be incomplete; inspect it before use and export to a new filename. See [the language and transcript review lab](docs/LANGUAGE-AUDIO-REVIEW.md).
+
 ## Companion project: Layout Preflight
 
 [Layout Preflight](tools/layout-preflight/README.md) turns original design specifications into visual SVG specimens and a concrete QA queue. Compare a deliberately flawed exhibit-style layout with its corrected version, then inspect the contrast, margins, typography and geometry rules. This is a separate runnable project with its own examples, tests and limitations, not an image-quality or accessibility certification.

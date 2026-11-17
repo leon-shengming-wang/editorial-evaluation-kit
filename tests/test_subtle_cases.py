@@ -8,6 +8,20 @@ class SubtleCaseTests(unittest.TestCase):
     def setUpClass(cls):
         cls.cases = {r['id']: r for r in load(Path(__file__).resolve().parents[1] / 'data/cases.jsonl')}
 
+    def test_headline_word_count_matches_rationale(self):
+        r = self.cases['ed-001']
+        self.assertEqual(len(r['responses']['B'].split()), 10)
+        self.assertIn('10 whitespace-delimited words', r['rationale'])
+        longer = self.cases['ed-004']
+        self.assertEqual(len(longer['responses']['B'].split()), 27)
+        self.assertIn('27 whitespace-delimited words', longer['rationale'])
+
+    def test_punctuation_lab_calibration_is_explicit(self):
+        doc = (Path(__file__).resolve().parents[1] / 'docs/LANGUAGE-AUDIO-REVIEW.md').read_text()
+        self.assertIn('A accuracy 2, instructions 3, clarity 5, total **12**', doc)
+        self.assertEqual(total({'accuracy': 2, 'instructions': 3, 'clarity': 5}), 12)
+        self.assertIn('Neither version explicitly grants permission after arrival.', doc)
+
     def test_cutoff_case_marks_both_flawed(self):
         r = self.cases['fc-004']
         self.assertEqual((total(r['scores']['A']), total(r['scores']['B'])), (14, 13))
