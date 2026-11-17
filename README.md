@@ -15,6 +15,7 @@ This is a learning and portfolio project created for Leon Wang's editorial and A
 - [See the automated checks](tests/test_core.py).
 - [Inspect the SQL calibration workflow](docs/CALIBRATION.md).
 - [Read the verification record](docs/VERIFICATION.md).
+- [See actual issues found and corrected](docs/ENGINEERING-NOTES.md), including output consistency, numerical bounds, rubric calibration, and CI compatibility.
 
 ## Practice before reading the answer
 
