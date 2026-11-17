@@ -29,7 +29,16 @@ def strict_loads(text):
             result[key] = value
         return result
     try:
-        return json.loads(text, parse_constant=reject, parse_float=finite, object_pairs_hook=pairs)
+        result = json.loads(text, parse_constant=reject, parse_float=finite, object_pairs_hook=pairs)
+        pending = [(result, 0)]
+        while pending:
+            value, depth = pending.pop()
+            if isinstance(value, (list, dict)):
+                if depth > 100:
+                    raise InputError("JSON nesting is too deep.")
+                children = value.values() if isinstance(value, dict) else value
+                pending.extend((child, depth + 1) for child in children)
+        return result
     except RecursionError as exc:
         raise InputError('JSON nesting is too deep.') from exc
 
