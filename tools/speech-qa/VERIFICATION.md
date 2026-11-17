@@ -29,8 +29,16 @@ Desktop and mobile screenshots were inspected. Playback progress was machine-obs
 
 ## Fast tests and boundaries
 
-26 deterministic Python tests cover interval unions, omitted-span candidates, empty/silent activity, low confidence, absent confidence, invalid duration/time, supplied-script comparison, escaping, offline rendering, loopback host/origin protections, malformed form basics and missing token. Parent ReviewBench and Layout Preflight suites were rerun independently. CI does not download an ASR model and must not be described as model-quality verification.
+43 deterministic Python tests cover interval unions, omitted-span candidates, empty/silent activity, low confidence, absent confidence, invalid duration/time, supplied-script comparison, escaping, offline rendering, loopback host/origin protections, malformed form basics and missing token. Parent ReviewBench and Layout Preflight suites were rerun independently. CI does not download an ASR model and must not be described as model-quality verification.
 
 Current limits: single-user loopback server, one job at a time, English browser UI/default model; CLI multilingual support is an exposed upstream option, **not independently tested multilingual accuracy**. No diarization, forced alignment, WER benchmarking, cancellation UI, persistent jobs, transcript draft import or production hardening. Review edits are in-memory until export. Large input limits are prototype caps, not performance guarantees.
 
 Independent review caught and fixed literal-placeholder corruption in report generation and missing GET host/origin checks. Regression tests cover both. Decoding currently occurs before the duration limit is checked; use short trusted recordings, since a highly compressed long file can consume substantial memory before rejection. This is another reason not to expose the server publicly.
+
+## Reference discrepancy playback follow-up
+
+A second actual inference on the same 11-second public fixture used a **deliberately altered expected script**: “Americans” was replaced with “neighbors”, and “please” and “today” were inserted into the expected text. These injected differences test the workflow; they are **not naturally observed ASR mistakes or a measured detection score**.
+
+Recognized-word differences use matching ASR word intervals. Expected-only text has no word times, so the UI offers neighboring context with a warning, or no playback location when anchors are missing or conflicting. All overlapping/out-of-order segment timing involved in mapping is rejected for this purpose. Separate edge tests cover invalid times, empty ASR, leading/trailing missing text, repeated phrases, word/text mismatch, multi-token words and cross-segment overlaps.
+
+The optional `tests/reference_browser_smoke.py REPORT_HTML` exercises actual audio playback of a word-backed discrepancy, bounded playback stopping, neighboring context, return to full playback, exported location evidence and mobile width. This verifies tool behavior, not whether a supplied script is correct or a real transcription error occurred.

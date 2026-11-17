@@ -10,7 +10,9 @@ const el = (tag, text, cls) => {
     if (cls) n.className = cls;
     return n;
 };
+let clipEnd = null;
 const seek = t => {
+    clipEnd = null;
     audio.currentTime = Math.max(0, Math.min(data.duration, t));
 };
 [
@@ -90,7 +92,20 @@ if (data.reference_comparison) {
     reference.append(el('p', data.reference_comparison.note));
     data.reference_comparison.differences.forEach(d => {
         const box = el('div', undefined, 'flag');
-        box.append(el('strong', d.operation), el('p', 'Expected: ' + (d.reference || '(none)')), el('p', 'Recognized: ' + (d.recognized || '(none)')));
+        box.append(el('strong', ({replace: 'Different wording', delete: 'Expected text absent from ASR', insert: 'Unexpected recognized text'})[d.operation] || d.operation), el('p', 'Expected: ' + (d.reference || '(none)')), el('p', 'Recognized: ' + (d.recognized || '(none)')));
+        const location = d.location;
+        if (location && location.kind !== 'unavailable' && Number.isFinite(location.start) && Number.isFinite(location.end)) {
+            const button = el('button', (location.kind === 'neighboring-context' ? 'Play context ' : 'Play recognized words ') + location.start.toFixed(2) + '–' + location.end.toFixed(2) + 's');
+            button.onclick = async () => {
+                seek(Math.max(0, location.start - .25));
+                clipEnd = Math.min(data.duration, location.end + .25);
+                try { await audio.play(); }
+                catch (error) { document.getElementById('status').textContent = 'Playback could not start. Use the audio controls to listen.'; clipEnd = null; }
+            };
+            box.append(button);
+        } else box.append(el('p', 'Playback location unavailable.'));
+        if (location) box.append(el('p', location.explanation, 'muted'));
+        box.append(el('small', d.alignment_warning || 'Verify script matching by listening.'));
         reference.append(box);
     });
     if (!data.reference_comparison.differences.length) reference.append(el('p', 'Normalized text matches the supplied reference. Timing and delivery still require review.'));
@@ -105,6 +120,7 @@ const {
 document.getElementById('provenance').textContent = JSON.stringify(meta, null, 2);
 
 function sync() {
+    if (clipEnd !== null && audio.currentTime >= clipEnd) { clipEnd = null; audio.pause(); }
     document.getElementById('clock').textContent = audio.currentTime.toFixed(2) + 's';
     timed.forEach(([n, w]) => n.classList.toggle('active', audio.currentTime >= w.start && audio.currentTime < w.end));
 }
@@ -155,3 +171,11 @@ function animatePlayhead() {
 audio.addEventListener('play', () => {
     if (animationFrame === null) animationFrame = requestAnimationFrame(animatePlayhead);
 });
+
+// Native audio-control interaction exits a suggested clip; programmatic seeking does not.
+['pointerdown', 'keydown'].forEach(event => audio.addEventListener(event, () => { clipEnd = null; }));
+document.getElementById('full-playback').onclick = async () => {
+    clipEnd = null;
+    try { await audio.play(); document.getElementById('status').textContent = 'Full recording playback. No suggested-clip stopping point is active.'; }
+    catch (error) { document.getElementById('status').textContent = 'Use the audio controls to start playback.'; }
+};

@@ -38,13 +38,13 @@ An existing output directory is never overwritten. Open `index.html` for playbac
 - Independent Silero voice-activity detection on the untrimmed recording. No VAD filtering before ASR, so timing stays on the source timeline.
 - Gaps of at least 0.75 seconds between detected speech and the union of word intervals become **uncovered-speech candidates**.
 - Low model word probability (<0.55), low segment average log probability (<−0.8), compression ratio (>2.4), invalid/overlapping timestamps, and text in regions with little VAD support (<10%) become review candidates.
-- Optional normalized script comparison highlights deletions, insertions and substitutions via sequence matching. This is **not WER**, a forced aligner, or a ground-truth oracle. A source script can differ from what was actually spoken.
+- Optional normalized script comparison highlights deletions, insertions and substitutions via sequence matching. Substitutions and unexpected recognized words link to their ASR word intervals. Expected words absent from ASR link only to neighboring context, never fabricated timestamps for missing speech. Invalid/overlapping or mismatched word-time evidence produces **location unavailable**. Repeated phrases can make text matching ambiguous. This is **not WER**, a forced aligner, or a ground-truth oracle. A source script can differ from what was actually spoken.
 
 ## What still requires judgment
 
 Speech detection can mistake music or noise for speech and miss quiet/accented speech. An uncovered interval is not proof of omission. Model probabilities are not calibrated correctness scores. Incorrect transcription can be confidently wrong. Word timestamps are ASR estimates, not manually verified boundaries. No flags does not imply no errors. The tool does not invent missing words or silently replace the transcript.
 
-Click word/timestamp buttons to seek the real audio player. The highlighted word follows `currentTime`, including seeking and speed changes. Propose corrections separately from the immutable original; confirm/dismiss flags with a rationale; export a versioned JSON containing provenance, originals, flags and your review. Drafts stay in memory, not browser storage. Export before refreshing. The browser cannot verify whether you saved a requested download. There is no draft import yet.
+Click word/timestamp buttons to seek the real audio player. Reference-comparison buttons play and stop at the suggested interval (with a 0.25-second margin). **Resume full recording** or native audio-control interaction exits clip mode. The highlighted word follows `currentTime`, including seeking and speed changes. Propose corrections separately from the immutable original; confirm/dismiss flags with a rationale; export a versioned JSON containing provenance, originals, flags and your review. Drafts stay in memory, not browser storage. Export before refreshing. The browser cannot verify whether you saved a requested download. There is no draft import yet.
 
 See [the observed silence failure](examples/README.md) for a concrete, reproducible example of why human review remains necessary.
 
@@ -81,3 +81,9 @@ python tests/browser_smoke.py
 ```
 
 The fixture folder is ignored by Git. Only use this public upstream test fixture here; do not place confidential audio into tracked files. Playwright uses its own isolated test browser. The local server must remain running for the test.
+
+## Playable reference differences
+
+![Reference discrepancy playback](assets/reference-playback.png)
+
+This actual interface screenshot uses a deliberately altered expected script to test playback mapping. It does not show three proven ASR errors. Word-backed playback and neighboring-context playback are intentionally different, and the exported JSON retains that distinction.

@@ -136,25 +136,135 @@ def analyze(segments, duration, speech_spans=None, reference=None):
                 "Less than 10% of this segment overlaps independent speech activity. Could be quiet speech, VAD failure or unsupported ASR text.",
                 i,
             )
-    comparison = None
-    if reference is not None:
-        tokenize = lambda t: re.findall(r"[\w]+(?:['’][\w]+)?", t.lower())
-        expected = tokenize(reference)
-        actual = tokenize(" ".join(s["text"] for s in segments))
-        differences = []
-        for op, a, b, c, d in difflib.SequenceMatcher(
-            None, expected, actual, autojunk=False
-        ).get_opcodes():
-            if op != "equal":
-                differences.append(
-                    dict(
-                        operation=op,
-                        reference=" ".join(expected[a:b]),
-                        recognized=" ".join(actual[c:d]),
-                    )
-                )
-        comparison = dict(
-            differences=differences,
-            note="Sequence alignment against your supplied reference; not WER, not verified omissions. Reference may itself differ from the recording. No inferred timestamps.",
-        )
+    comparison = (
+        compare_reference(segments, duration, reference)
+        if reference is not None
+        else None
+    )
     return dict(flags=flags, reference_comparison=comparison)
+
+
+def tokenize(text):
+    """English-focused comparison normalization; does not infer word boundaries for CJK."""
+    return re.findall(r"[\w]+(?:['’][\w]+)?", text.lower().replace("’", "'"))
+
+
+def compare_reference(segments, duration, reference):
+    """Map differences to ASR-backed intervals, never invent missing-word timestamps.
+
+    A segment's text must exactly match its normalized word stream before its
+    word times can locate a difference. A deletion has no recognized words and
+    therefore can only offer neighboring context, never an exact missing span.
+    """
+    actual, timing = [], []
+    conflicting_segments = set()
+    for i, current in enumerate(segments):
+        for j, previous_segment in enumerate(segments[:i]):
+            if (
+                number(previous_segment["end"])
+                and number(current["start"])
+                and previous_segment["end"] > current["start"]
+            ):
+                conflicting_segments.update((i, j))
+    for segment_index, segment in enumerate(segments):
+        tokens = tokenize(segment["text"])
+        word_tokens, word_times = [], []
+        previous = segment["start"]
+        valid = (
+            segment_index not in conflicting_segments
+            and number(segment["start"])
+            and number(segment["end"])
+            and 0 <= segment["start"] < segment["end"] <= duration
+        )
+        for word in segment.get("words", []):
+            a, b = word.get("start"), word.get("end")
+            safe = (
+                number(a)
+                and number(b)
+                and 0 <= a < b <= duration
+                and segment["start"] <= a
+                and b <= segment["end"]
+                and a >= previous
+            )
+            valid = valid and safe
+            if safe:
+                previous = b
+            pieces = tokenize(word["word"])
+            word_tokens.extend(pieces)
+            word_times.extend([dict(start=a, end=b, word=word["word"])] * len(pieces))
+        actual.extend(tokens)
+        timing.extend(
+            word_times if valid and word_tokens == tokens else [None] * len(tokens)
+        )
+    expected = tokenize(reference)
+    differences = []
+    for op, a, b, c, d in difflib.SequenceMatcher(
+        None, expected, actual, autojunk=False
+    ).get_opcodes():
+        if op == "equal":
+            continue
+        location = dict(
+            kind="unavailable",
+            start=None,
+            end=None,
+            explanation="No trustworthy matching word-time sequence at this difference. Listen to the recording manually.",
+            anchors=[],
+        )
+        if c < d and all(timing[c:d]):
+            selected = timing[c:d]
+            if all(
+                (
+                    selected[i] is selected[i + 1]
+                    or selected[i]["end"] <= selected[i + 1]["start"]
+                )
+                for i in range(len(selected) - 1)
+            ):
+                location = dict(
+                    kind="recognized-word-interval",
+                    start=selected[0]["start"],
+                    end=selected[-1]["end"],
+                    explanation="ASR timestamps for the recognized words, not verified error boundaries. Script sequence matching is heuristic.",
+                    anchors=selected,
+                )
+        elif op == "delete":
+            before = timing[c - 1] if c > 0 else None
+            after = timing[c] if c < len(timing) else None
+            if before and after and before["end"] <= after["start"]:
+                location = dict(
+                    kind="neighboring-context",
+                    start=before["start"],
+                    end=after["end"],
+                    explanation="Expected text has no ASR word timestamps. Play the neighboring recognized words; the missing text may not have been spoken at all.",
+                    anchors=[before, after],
+                )
+            elif before and c == len(timing):
+                location = dict(
+                    kind="neighboring-context",
+                    start=before["start"],
+                    end=min(duration, before["end"] + 1),
+                    explanation="Expected ending has no ASR timestamps. Only the last recognized word and up to one second after it are offered as context, not an omission location.",
+                    anchors=[before],
+                )
+            elif after and c == 0:
+                location = dict(
+                    kind="neighboring-context",
+                    start=max(0, after["start"] - 1),
+                    end=after["end"],
+                    explanation="Expected opening has no ASR timestamps. Only the first recognized word and up to one second before it are offered as context, not an omission location.",
+                    anchors=[after],
+                )
+        differences.append(
+            dict(
+                operation=op,
+                reference=" ".join(expected[a:b]),
+                recognized=" ".join(actual[c:d]),
+                reference_token_range=[a, b],
+                recognized_token_range=[c, d],
+                location=location,
+                alignment_warning="Repeated phrases can make script matching ambiguous. Verify the suggested location by listening.",
+            )
+        )
+    return dict(
+        differences=differences,
+        note="Supplied-script comparison, not verified errors or WER. Playback locations use ASR word estimates; absent words get neighboring context only. Timing is unavailable when text and word-time evidence disagree.",
+    )
