@@ -26,7 +26,7 @@ python3 -m reviewbench.practice data/cases.jsonl --category language --category 
 
 [Open the ready-to-use blank worksheet](docs/PRACTICE-WORKSHEET.md).
 
-The exporter refuses to overwrite an existing file, protecting your notes. Read the supplied source, form a decision and quote evidence before comparing it with the authored reference. This reduces answer anchoring; it is not a secure or independently administered assessment. Keep real review notes private unless you have checked their contents. If an export is interrupted or disk writing fails, a newly created worksheet can be incomplete; inspect it before use and export to a new filename. See [the language and transcript review lab](docs/LANGUAGE-AUDIO-REVIEW.md).
+The exporter refuses to overwrite an existing file, protecting your notes. Read the supplied source, form a decision and quote evidence before comparing it with the authored reference. Each worksheet records a SHA-256 fingerprint of the displayed input, so changed source material can be distinguished from changed reference judgments. A hash identifies content; it does not certify truth or authorship. This reduces answer anchoring; it is not a secure or independently administered assessment. Keep real review notes private unless you have checked their contents. If an export is interrupted or disk writing fails, a newly created worksheet can be incomplete; inspect it before use and export to a new filename. See [the language and transcript review lab](docs/LANGUAGE-AUDIO-REVIEW.md).
 
 ## Companion project: Layout Preflight
 

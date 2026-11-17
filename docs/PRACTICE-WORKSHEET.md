@@ -6,6 +6,8 @@ Read the prompt and source before comparing responses. Record your own judgment 
 
 ## au-001 / audio
 
+Input fingerprint (SHA-256): `b4e2b7c5fefbbbf7e053a7e3843d5f674406120f1a9ec22ba078fc96a5ccf4b6`
+
 ### Task
 
 ```
@@ -41,6 +43,8 @@ Do not submit the form before Friday. The office will send a corrected version T
 - What evidence would change your decision:
 
 ## au-002 / audio
+
+Input fingerprint (SHA-256): `c3df921c4687892dfb2f773831f8303a378ce3bc7708678a3e557cfb7fd49333`
 
 ### Task
 
@@ -78,6 +82,8 @@ GUEST: What is the revised budget? HOST: Fifty thousand dollars, not fifteen tho
 
 ## au-003 / audio
 
+Input fingerprint (SHA-256): `0b9a2a2fbb7e9f054a39849cde791646a16a431f96be00da419d7edfe8aeb4d4`
+
 ### Task
 
 ```
@@ -114,6 +120,8 @@ Meet at Vine Street at six.
 
 ## lg-001 / language
 
+Input fingerprint (SHA-256): `5bc48769dd3c9d4e3bbcefad9287e3214b2ff66c33451fa38bc67af5b11f9619`
+
 ### Task
 
 ```
@@ -149,6 +157,8 @@ If a permit is granted, the proposed expansion will increase rated annual capaci
 - What evidence would change your decision:
 
 ## au-004 / audio
+
+Input fingerprint (SHA-256): `c69de08a244041483a02ac94f999d707ae9d046823b29524b16d01ca0a3eebff`
 
 ### Task
 

@@ -1,5 +1,7 @@
 """Export a label-free Markdown worksheet, not a secure assessment system."""
 import argparse
+import hashlib
+import json
 import re
 from pathlib import Path
 from .core import CATEGORIES, DatasetError, load
@@ -10,6 +12,13 @@ def literal(value):
     longest = max((len(x) for x in re.findall(r'`+', value)), default=0)
     fence = '`' * max(3, longest + 1)
     return fence + '\n' + value + '\n' + fence
+
+
+def input_fingerprint(record):
+    """Identify the displayed input, independent of hidden reference decisions."""
+    visible = {key: record[key] for key in ('id', 'category', 'prompt', 'source', 'responses')}
+    payload = json.dumps(visible, sort_keys=True, ensure_ascii=False, separators=(',', ':'))
+    return hashlib.sha256(payload.encode('utf-8')).hexdigest()
 
 
 def worksheet(records, categories=None):
@@ -25,6 +34,7 @@ def worksheet(records, categories=None):
              'Use abstain when the central question cannot be resolved from the supplied evidence.']
     for r in selected:
         parts += ['## ' + r['id'] + ' / ' + r['category'],
+                  'Input fingerprint (SHA-256): `' + input_fingerprint(r) + '`',
                   '### Task', literal(r['prompt']), '### Supplied source', literal(r['source']),
                   '### Response A', literal(r['responses']['A']),
                   '### Response B', literal(r['responses']['B']),

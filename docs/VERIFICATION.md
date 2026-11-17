@@ -2,7 +2,7 @@
 
 Local validation on Python 3.9.6:
 
-- 61 unittest tests passed.
+- 63 unittest tests passed.
 - All 17 synthetic cases pass strict schema, exact evidence quote, and weighted decision checks.
 - Five categories are covered; decisions: five A, five B, four ties, three abstentions.
 - The regenerated 17-case report was inspected in Chrome on desktop, including the new semantic-review example. No remote fonts, scripts, API calls, or image requests are required.

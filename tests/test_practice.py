@@ -3,7 +3,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from reviewbench.core import load
-from reviewbench.practice import literal, main, worksheet
+from reviewbench.practice import input_fingerprint, literal, main, worksheet
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -22,6 +22,19 @@ class PracticeTests(unittest.TestCase):
         self.assertNotIn('Weighted score', text)
         self.assertIn(record['source'], text)
         self.assertIn(record['responses']['A'], text)
+    def test_input_fingerprint_ignores_reference_changes(self):
+        record = copy.deepcopy(self.records[0])
+        original = input_fingerprint(record)
+        record['winner'] = 'tie'
+        record['rationale'] = 'Changed reference only'
+        self.assertEqual(original, input_fingerprint(record))
+
+    def test_input_fingerprint_detects_source_change(self):
+        record = copy.deepcopy(self.records[0])
+        original = input_fingerprint(record)
+        record['source'] += ' New information.'
+        self.assertNotEqual(original, input_fingerprint(record))
+
     def test_category_selection(self):
         text = worksheet(self.records, ['language', 'audio'])
         self.assertIn('lg-001 / language', text)
