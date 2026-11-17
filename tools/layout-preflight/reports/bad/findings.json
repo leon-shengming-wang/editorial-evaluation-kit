@@ -1,0 +1,44 @@
+[
+  {
+    "code": "CONTRAST",
+    "box": "body",
+    "severity": "error",
+    "message": "Text/background contrast is 2.544:1; this project requires 4.5:1 for every text role."
+  },
+  {
+    "code": "FONT_FAMILY",
+    "box": "body",
+    "severity": "warning",
+    "message": "Font family is outside the declared design system."
+  },
+  {
+    "code": "BODY_SIZE",
+    "box": "body",
+    "severity": "warning",
+    "message": "Body font is smaller than the project minimum."
+  },
+  {
+    "code": "OUT_OF_BOUNDS",
+    "box": "detail",
+    "severity": "error",
+    "message": "Declared box extends beyond the canvas."
+  },
+  {
+    "code": "HIERARCHY",
+    "box": "headline",
+    "severity": "warning",
+    "message": "Headline/body size ratio is below the configured target."
+  },
+  {
+    "code": "BOX_OVERLAP",
+    "box": "headline + body",
+    "severity": "warning",
+    "message": "Declared rectangles overlap; inspect whether this is intentional."
+  },
+  {
+    "code": "ROLE_FONT_VARIATION",
+    "box": "body",
+    "severity": "warning",
+    "message": "Multiple font families are used for the same role; review intentionality."
+  }
+]

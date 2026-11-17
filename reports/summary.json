@@ -1,0 +1,16 @@
+{
+  "records": 14,
+  "categories": {
+    "audio": 3,
+    "design": 4,
+    "editorial": 4,
+    "fact-check": 3
+  },
+  "decisions": {
+    "A": 4,
+    "B": 5,
+    "tie": 3,
+    "abstain": 2
+  },
+  "scope": "Synthetic demonstration, not model performance or human agreement measurement."
+}

@@ -1,0 +1,78 @@
+{
+  "title": "Stories in Motion",
+  "canvas": {
+    "width": 900,
+    "height": 1000,
+    "background": "#102629"
+  },
+  "rules": {
+    "safe_margin": 60,
+    "body_min_px": 24,
+    "headline_ratio": 1.5,
+    "allowed_fonts": [
+      "Arial"
+    ]
+  },
+  "boxes": [
+    {
+      "id": "kicker",
+      "role": "caption",
+      "x": 70,
+      "y": 80,
+      "width": 760,
+      "height": 40,
+      "font_px": 18,
+      "font_family": "Arial",
+      "color": "#9de0c1",
+      "text": "A FICTIONAL EXHIBITION / DESIGN SPECIMEN"
+    },
+    {
+      "id": "headline",
+      "role": "headline",
+      "x": 70,
+      "y": 170,
+      "width": 760,
+      "height": 150,
+      "font_px": 64,
+      "font_family": "Arial",
+      "color": "#ffffff",
+      "text": "Stories\nin Motion"
+    },
+    {
+      "id": "body",
+      "role": "body",
+      "x": 70,
+      "y": 400,
+      "width": 760,
+      "height": 180,
+      "font_px": 26,
+      "font_family": "Arial",
+      "color": "#ecf3ef",
+      "text": "How everyday objects carry memories\nacross generations, cities, and cultures.\nAn original synthetic layout for QA practice."
+    },
+    {
+      "id": "detail",
+      "role": "body",
+      "x": 70,
+      "y": 690,
+      "width": 760,
+      "height": 110,
+      "font_px": 26,
+      "font_family": "Arial",
+      "color": "#ecf3ef",
+      "text": "Inspect the hierarchy. Check the evidence.\nPreserve the intent before changing the form."
+    },
+    {
+      "id": "footer",
+      "role": "caption",
+      "x": 70,
+      "y": 860,
+      "width": 760,
+      "height": 45,
+      "font_px": 18,
+      "font_family": "Arial",
+      "color": "#9de0c1",
+      "text": "NOT CLIENT WORK / NO REAL EVENT IS ADVERTISED"
+    }
+  ]
+}

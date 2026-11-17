@@ -1,0 +1,5 @@
+Local validation: Python 3.9.6
+48 unittest tests passed.
+Dataset: 14 valid synthetic records across four categories.
+Generated HTML and JSON reports successfully.
+No remote CI execution claimed.
