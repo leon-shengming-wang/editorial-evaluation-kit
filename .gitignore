@@ -8,3 +8,6 @@ __pycache__/
 # Locally generated practice notes and archives are not portfolio evidence.
 my-practice.md
 *.zip
+
+# Private local agreement exports
+my-agreement.*

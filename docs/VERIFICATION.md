@@ -28,3 +28,13 @@ An independent code pass exercised 198 malformed-value mutations without a crash
 python3 -m unittest discover -s tests -v
 python3 -m reviewbench data/cases.jsonl --html reports/index.html --json reports/summary.json
 ```
+
+## Pairwise audit addition — November 17, 2026
+
+- Main standard-library suite: 80 tests pass on local Python 3.9.
+- Layout Preflight companion: 29 tests pass from its own directory.
+- Existing 17-case HTML/JSON reports regenerate without changes.
+- Agreement fixture reproduces deterministic JSON and offline HTML.
+- Verified known kappa arithmetic, perfect/negative agreement, constant-label undefined kappa, no overlap, missing ratings, ties and abstentions, duplicate rejection, latest-revision selection, read-only database bytes, missing database non-creation, safe HTML escaping and exclusive output creation.
+- Visual browser inspection was not performed in this pass because a supported browser-control tool was unavailable. HTML checks are structural and content tests, not a claim that every visual layout or browser was tested.
+- The initial attempt to run companion tests from the repository root failed import resolution; rerunning from the documented `tools/layout-preflight` working directory passed all 29 tests. The CI workflow already uses that working directory.

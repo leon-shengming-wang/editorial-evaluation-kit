@@ -33,6 +33,10 @@ The exporter refuses to overwrite an existing file, protecting your notes. Read 
 
 [Layout Preflight](tools/layout-preflight/README.md) turns original design specifications into visual SVG specimens and a concrete QA queue. Compare a deliberately flawed exhibit-style layout with its corrected version, then inspect the contrast, margins, typography and geometry rules. This is a separate runnable project with its own examples, tests and limitations, not an image-quality or accessibility certification.
 
+## Calibration lab: investigate disagreements
+
+[Read the agreement audit](docs/AGREEMENT-AUDIT.md) or [download its visual demonstration](reports/agreement-demo.html). A read-only tool compares two reviewers' latest local ratings, separates missing coverage from disagreement, displays a four-label confusion matrix, and preserves both reasons in an investigation queue. It handles undefined kappa explicitly. The committed demo is clearly simulated, not a claim about human performance.
+
 ## Run in one minute
 
 Python 3.9 or newer. No dependencies, API key, account, or network connection required.

@@ -1,0 +1,67 @@
+{
+  "reviewers": [
+    "simulated-left",
+    "simulated-right"
+  ],
+  "shared_cases": 5,
+  "left_only_cases": [
+    "demo-06"
+  ],
+  "right_only_cases": [],
+  "exact_agreements": 3,
+  "observed_agreement": 0.6,
+  "chance_agreement": 0.24,
+  "cohens_kappa": 0.47368421052631576,
+  "kappa_status": "defined",
+  "confusion_matrix": {
+    "A": {
+      "A": 1,
+      "B": 1,
+      "tie": 0,
+      "abstain": 0
+    },
+    "B": {
+      "A": 0,
+      "B": 0,
+      "tie": 1,
+      "abstain": 0
+    },
+    "tie": {
+      "A": 0,
+      "B": 0,
+      "tie": 1,
+      "abstain": 0
+    },
+    "abstain": {
+      "A": 0,
+      "B": 0,
+      "tie": 0,
+      "abstain": 1
+    }
+  },
+  "disagreements": [
+    {
+      "case_id": "demo-02",
+      "left_label": "B",
+      "right_label": "tie",
+      "left_reason": "B preserves the uncertainty qualifier.",
+      "right_reason": "Both omit a required detail. Revisit whether the qualifier outweighs that omission.",
+      "action": "Review the source and rubric; do not assume either reviewer is wrong."
+    },
+    {
+      "case_id": "demo-04",
+      "left_label": "A",
+      "right_label": "B",
+      "left_reason": "A follows the requested word limit.",
+      "right_reason": "B retains the safety qualification. Revisit competing instruction priorities.",
+      "action": "Review the source and rubric; do not assume either reviewer is wrong."
+    }
+  ],
+  "limitations": [
+    "All four labels, including abstain, count as nominal categories.",
+    "Only latest ratings on shared cases are compared; missing ratings are not disagreements.",
+    "Small or selected samples are descriptive, not evidence of reviewer reliability or accuracy.",
+    "Ratings and reasons may contain personal information. Inspect before sharing."
+  ],
+  "provenance": "All ratings and reasons are AI-authored simulations, not real human review or model measurements."
+}
